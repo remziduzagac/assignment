@@ -53,7 +53,7 @@ async def get_listings(
 
 @router.post("/", status_code=201, response_model=ListingSchema)
 async def create_listing(
-    *, data: ListingCreateSchema, db: Session = Depends(get_db)
+        *, data: ListingCreateSchema, db: Session = Depends(get_db)
 ) -> Any:
     """
     Create new listing
@@ -64,7 +64,7 @@ async def create_listing(
 
 @router.put("/", status_code=201, response_model=ListingSchema, responses={404: {"model": Message}})
 async def update_listing(
-    *, data: ListingUpdateSchema, db: Session = Depends(get_db)
+        *, data: ListingUpdateSchema, db: Session = Depends(get_db)
 ) -> Any:
     """
     Update listing. Existing listing will be matched through id
@@ -98,7 +98,8 @@ async def delete_listing(
         return deleted_listing
 
 
-@router.get("/search/{keyword}", status_code=200, response_model=Sequence[ListingSchema], responses={404: {"model": Message}})
+@router.get("/search/{keyword}", status_code=200, response_model=Sequence[ListingSchema],
+            responses={404: {"model": Message}})
 async def search_listings(
         *,
         keyword: str = Path(title="Search keyword"),
@@ -114,6 +115,3 @@ async def search_listings(
             status_code=404, content={"message": "No listing found"}
         )
     return results
-
-
-

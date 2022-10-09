@@ -1,4 +1,3 @@
-
 def test_read_listing_success(client):
     response = client.get("/listing/1")
     assert response.status_code == 200
@@ -111,7 +110,3 @@ def test_delete_listing_success(client):
 def test_delete_listing_not_found(client):
     response = client.delete("/listing/700")
     response.status_code == 404
-
-
-
-

@@ -19,5 +19,3 @@ class ListingCreateSchema(BaseModel):
 
 class ListingUpdateSchema(ListingBaseSchema):
     pass
-
-

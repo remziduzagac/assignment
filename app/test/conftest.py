@@ -1,14 +1,16 @@
-import sys
 import os
-import pytest
+import sys
 from typing import Any
 from typing import Generator
+
+import pytest
 from fastapi import FastAPI, APIRouter
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from app.core.db.session import get_db
+
 from app.controller import listing
+from app.core.db.session import get_db
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -66,4 +68,3 @@ def client(
     app.dependency_overrides[get_db] = _get_test_db
     with TestClient(app) as client:
         yield client
-

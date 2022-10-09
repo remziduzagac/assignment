@@ -24,4 +24,5 @@ async def root():
     </html>
     """
 
+
 app.include_router(router)

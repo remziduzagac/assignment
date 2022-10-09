@@ -19,9 +19,6 @@ class ListingRepository(CRUDBase[Listing, ListingCreateSchema, ListingUpdateSche
         :param limit: How many results will be returned
         :return: List of listing instance
         """
-        results = db.query(self.model).filter(func.lower(self.model.address).contains(keyword.lower())).limit(limit).all()
+        results = db.query(self.model).filter(func.lower(self.model.address).contains(keyword.lower())).limit(
+            limit).all()
         return results
-
-
-
-
