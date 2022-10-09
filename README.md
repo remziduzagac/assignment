@@ -39,7 +39,7 @@ Just run pytest at the project root
 ```
 
 ### Run the Project
-In order to run the project run following command;
+In order to run the project exdcute following command;
 ```shell
 (venv) $ python -m uvicorn app.main:app --reload 
 ```
