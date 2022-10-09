@@ -45,8 +45,8 @@ In order to run the project run following command;
 ```
 Now you can access project via following URLS; <br />
 Project: [http://127.0.0.1:8000/](http://127.0.0.1:8000/) <br />
-Swagger UI URL: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) <br />
-Redoc UI URL: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc) <br />
+Swagger UI: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) <br />
+Redoc UI: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc) <br />
 
 ## Module Overview
 | **Module / Folder** | **Description**                                                                                                                                                                                             |
