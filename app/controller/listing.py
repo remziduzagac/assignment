@@ -15,7 +15,7 @@ listingRepo = ListingRepository(Listing)
 
 
 @router.get("/{id}", status_code=200, response_model=ListingSchema, responses={404: {"model": Message}})
-def get_listing(
+async def get_listing(
         *,
         id: int = Path(title="ID of listing to be fetched"),
         db: Session = Depends(get_db)
@@ -33,7 +33,7 @@ def get_listing(
 
 
 @router.get("/", status_code=200, response_model=Sequence[ListingSchema], responses={404: {"model": Message}})
-def get_listings(
+async def get_listings(
         *,
         skip: Optional[int] = Query(default=0, title="How many listings will be skipped from results"),
         limit: Optional[int] = Query(default=100, title="How many listings will be returned"),
@@ -52,7 +52,7 @@ def get_listings(
 
 
 @router.post("/", status_code=201, response_model=ListingSchema)
-def create_listing(
+async def create_listing(
     *, data: ListingCreateSchema, db: Session = Depends(get_db)
 ) -> Any:
     """
@@ -63,7 +63,7 @@ def create_listing(
 
 
 @router.put("/", status_code=201, response_model=ListingSchema, responses={404: {"model": Message}})
-def update_listing(
+async def update_listing(
     *, data: ListingUpdateSchema, db: Session = Depends(get_db)
 ) -> Any:
     """
@@ -80,7 +80,7 @@ def update_listing(
 
 
 @router.delete("/{id}", status_code=200, response_model=ListingSchema, responses={404: {"model": Message}})
-def delete_listing(
+async def delete_listing(
         *,
         id: int = Path(title="ID of listing to be fetched"),
         db: Session = Depends(get_db)
@@ -99,7 +99,7 @@ def delete_listing(
 
 
 @router.get("/search/{keyword}", status_code=200, response_model=Sequence[ListingSchema], responses={404: {"model": Message}})
-def search_listings(
+async def search_listings(
         *,
         keyword: str = Path(title="Search keyword"),
         limit: Optional[int] = Query(default=100, title="How many records will be returned"),
